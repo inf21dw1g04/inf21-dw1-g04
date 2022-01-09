@@ -1,6 +1,6 @@
 # Biblioteca
 
-Repository to host the project developed for 'some class', a fisrt year subject at Universidade da Maia - ISMAI. Developed by Group ALPHA : [@rodmoreira41](https://github.com/rodmoreira41), [@pauloazevedo1994](https://github.com/pauloazevedo1994), [@JoaoAragaoA039132](https://github.com/JoaoAragaoA039132).
+Repository to host the project developed for Desenvolvimento Web I, a second year subject at Universidade da Maia - ISMAI. Developed by Group 04 : [@rodmoreira41](https://github.com/rodmoreira41), [@pauloazevedo1994](https://github.com/pauloazevedo1994), [@JoaoAragaoA039132](https://github.com/JoaoAragaoA039132).
 
 ## Short theme description
 
@@ -8,7 +8,6 @@ An example report using markdown on Github. This documentation is writen using [
 
 ## Repository organization
 
-_Please help reader navigate around describing how the repository is organized by providing links_
 * **Source code** is in the [src folder](src/).
 * Report chapters are in [doc folder](doc/).
 * Initial [OpenApi document](api/openapi.yaml)
@@ -20,13 +19,14 @@ A [table](https://www.markdownguide.org/extended-syntax/#tables) may be usefull 
 
 ## Technologies
 
-_Indicate the technologies you have used in this assignment. Please provide links for the user to read more about those technologies._
-* XML
-* HTML5 + CSS3
-* Javascript
-* PHP
-* nodeJS
-* _Any other?_
+* Javascript (https://developer.mozilla.org/en-US/docs/Web/JavaScript/About_JavaScript)
+* nodeJS (https://nodejs.org/en/)
+* Yaml (https://yaml.org/)
+* Markdown (https://www.markdownguide.org/)
+* MySQL Workbench (https://www.mysql.com/products/workbench/)
+* Postman (https://www.postman.com/)
+* GitHub (https://github.com/)
+* Docker (https://www.docker.com/)
 
 ### Frameworks and Libraries
 
@@ -35,8 +35,6 @@ _Did you use any aditional libraries? Describe them here._
 * Multipass
 * NodeJS
 * JQuery
-* Laravel
-* Bootstrap
 
 ## Report
 _Please add at least on section (a file) per Chapter. But you can add more._
