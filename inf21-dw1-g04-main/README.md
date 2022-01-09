@@ -1,6 +1,6 @@
-# My work assignment Title
+# Biblioteca
 
-Repository to host the project developed for 'some class', a fisrt year subject at SOMESCHOOL. Developed by Group ALPHA : [@MarcoOliveira](https://github.com/marcoamarooliveira), [add others].
+Repository to host the project developed for 'some class', a fisrt year subject at Universidade da Maia - ISMAI. Developed by Group ALPHA : [@rodmoreira41](https://github.com/rodmoreira41), [@pauloazevedo1994](https://github.com/pauloazevedo1994), [@JoaoAragaoA039132](https://github.com/JoaoAragaoA039132).
 
 ## Short theme description
 
