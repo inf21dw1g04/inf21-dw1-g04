@@ -12,11 +12,6 @@ An example report using markdown on Github. This documentation is writen using [
 * Report chapters are in [doc folder](doc/).
 * Initial [OpenApi document](api/openapi.yaml)
 
-## Gallery
-
-_Please provide a galery of the final result, with small images_
-A [table](https://www.markdownguide.org/extended-syntax/#tables) may be usefull to organize the images.
-
 ## Technologies
 
 * Javascript (https://developer.mozilla.org/en-US/docs/Web/JavaScript/About_JavaScript)
