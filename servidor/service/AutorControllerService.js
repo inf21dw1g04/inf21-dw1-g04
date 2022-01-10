@@ -64,7 +64,6 @@ exports.retrieveAutorId = function(id) {
   });
 }
 
-
 exports.updateAutor = function(body,id) {
   return new Promise(function(resolve, reject) {
     resolve();
