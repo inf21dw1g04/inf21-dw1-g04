@@ -37,7 +37,20 @@ _Did you use any aditional libraries? Describe them here._
 * JQuery
 
 ## Report
-_Please add at least on section (a file) per Chapter. But you can add more._
+
+* Chapter 1: [api/openapi.yaml](api/openapi.yaml)
+* Chapter 2: [doc](doc)
+* Chapter 3: [doc/images](doc/images)
+* Chapter 4: [servidor](servidor)
+* Chapter 5: [servidor/.swagger-codegen](servidor/.swagger-codegen)
+* Chapter 6: [servidor/api](servidor/api)
+* Chapter 7: [servidor/controllers](servidor/controllers)
+* Chapter 8: [servidor/node_modules](servidor/node_modules)
+* Chapter 9: [servidor/service](servidor/service)
+* Chapter 10: [servidor/utils](servidor/utils)
+* Chapter 11: [servidor/package.json](servidor/package.json)
+* Chapter 12: [src](src)
+* Chapter 12: [LICENSE](LICENSE)
 
 ### Project presentation
 * Chapter 1: [Project presentation](doc/c1.md)
