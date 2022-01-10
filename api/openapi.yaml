@@ -33,6 +33,27 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
       x-swagger-router-controller: LivrosController
+      
+    post:
+      tags:
+      - LivrosController
+      summary: Insert Livros
+      operationId: insertLivros
+      responses:
+        "200":
+          description: Array of Livros model instances
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Livros'
+                x-content-type: application/json
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+      x-swagger-router-controller: LivrosController
+    
   /Livros/{id}:
     get:
       tags:
@@ -71,11 +92,12 @@ paths:
         "404":
           description: id not found
       x-swagger-router-controller: LivrosController
+    
     put:
       tags:
       - LivrosController
       summary: Update Livros
-      operationId: updateLivros
+      operationId: updateLivroId
       parameters:
       - name: id
         in: path
@@ -117,6 +139,34 @@ paths:
         "404":
           description: id not found
       x-swagger-router-controller: LivrosController
+    delete:
+      tags:
+      - LivrosController
+      summary: Delete Livro
+      operationId: deleteLivro
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 1
+          type: integer
+          format: int64
+        examples:
+          one:
+            summary: Delete Livros id 1
+            value: 1
+          two:
+            summary: Delete Livros id 2
+            value: 2
+      responses:
+        "204":
+          description: No Content
+        "404":
+          description: id not found
+      x-swagger-router-controller: AutorController
   /Editoras:
     get:
       tags:
@@ -137,12 +187,33 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
       x-swagger-router-controller: EditorasController
+      
+    post:
+      tags:
+      - EditorasController
+      summary: Insert Editoras
+      operationId: insertEditoras
+      responses:
+        "200":
+          description: Array of Editoras model instances
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Editoras'
+                x-content-type: application/json
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+      x-swagger-router-controller: EditorasController
+      
   /Editoras/{id}:
     get:
       tags:
       - EditorasController
       summary: Retrieve Editoras
-      operationId: retrieveEditora
+      operationId: retrieveEditorasId
       parameters:
       - name: id
         in: path
@@ -221,6 +292,34 @@ paths:
         "404":
           description: id not found
       x-swagger-router-controller: EditorasController
+    delete:
+      tags:
+      - EditorasController
+      summary: Delete Editora
+      operationId: deleteEditora
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 1
+          type: integer
+          format: int64
+        examples:
+          one:
+            summary: Delete Livros id 1
+            value: 1
+          two:
+            summary: Delete Livros id 2
+            value: 2
+      responses:
+        "204":
+          description: No Content
+        "404":
+          description: id not found
+      x-swagger-router-controller: AutorController
   /Autor:
     get:
       tags:
@@ -241,66 +340,34 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200_1'
       x-swagger-router-controller: AutorController
-  /Autor/{id}{first_name}{last_name}{mail}:
+      
+    post:
+      tags:
+      - AutorController
+      summary: Insert Autor
+      operationId: insertAutor
+      responses:
+        "200":
+          description: Array of Autor model instances
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Autor'
+                x-content-type: application/json
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+      x-swagger-router-controller: AutorController
+  /Autor/{id}:
     get:
       tags:
       - AutorController
       summary: Retrieve Autor
-      operationId: retrieveAutores
+      operationId: retrieveAutorId
       parameters:
       - name: id
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          minimum: 5
-          type: integer
-          format: int64
-      - name: first_name
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: last_name
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-      - name: mail
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: string
-      responses:
-        "200":
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Autor'
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/Autor'
-        "400":
-          description: Bad request
-        "404":
-          description: id not found
-      x-swagger-router-controller: AutorController
-  /Autor/{fav}:
-    get:
-      tags:
-      - AutorController
-      summary: Retrieve Favoritos
-      operationId: retrieveFavoritos
-      parameters:
-      - name: fav
         in: path
         required: true
         style: simple
@@ -334,10 +401,10 @@ paths:
     put:
       tags:
       - AutorController
-      summary: Update Favoritos
-      operationId: updateFavoritos
+      summary: Update Autor
+      operationId: updateAutor
       parameters:
-      - name: fav
+      - name: id
         in: path
         required: true
         style: simple
@@ -380,10 +447,10 @@ paths:
     delete:
       tags:
       - AutorController
-      summary: Delete Favoritos
-      operationId: deleteFavoritos
+      summary: Delete Autor
+      operationId: deleteAutor
       parameters:
-      - name: fav
+      - name: id
         in: path
         required: true
         style: simple
