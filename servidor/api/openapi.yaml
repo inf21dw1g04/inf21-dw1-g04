@@ -33,6 +33,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
       x-swagger-router-controller: LivrosController
+      
     post:
       tags:
       - LivrosController
@@ -52,6 +53,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
       x-swagger-router-controller: LivrosController
+    
   /Livros/{id}:
     get:
       tags:
@@ -90,6 +92,7 @@ paths:
         "404":
           description: id not found
       x-swagger-router-controller: LivrosController
+    
     put:
       tags:
       - LivrosController
@@ -184,6 +187,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
       x-swagger-router-controller: EditorasController
+      
     post:
       tags:
       - EditorasController
@@ -203,6 +207,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
       x-swagger-router-controller: EditorasController
+      
   /Editoras/{id}:
     get:
       tags:
@@ -335,6 +340,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200_1'
       x-swagger-router-controller: AutorController
+      
     post:
       tags:
       - AutorController
@@ -372,10 +378,10 @@ paths:
           format: int64
         examples:
           one:
-            summary: Retrieve Livros id 1
+            summary: Retrieve Autor id 1
             value: 1
           two:
-            summary: Retrieve Livros id 2
+            summary: Retrieve Autor id 2
             value: 2
       responses:
         "200":
@@ -409,10 +415,10 @@ paths:
           format: int64
         examples:
           one:
-            summary: Update Livros id 1
+            summary: Update Autor id 1
             value: 1
           two:
-            summary: Update Livros id 2
+            summary: Update Autor id 2
             value: 2
       requestBody:
         content:
@@ -455,10 +461,10 @@ paths:
           format: int64
         examples:
           one:
-            summary: Delete Livros id 1
+            summary: Delete Autor id 1
             value: 1
           two:
-            summary: Delete Livros id 2
+            summary: Delete Autor id 2
             value: 2
       responses:
         "204":
@@ -485,12 +491,14 @@ components:
           type: integer
         id_autor:
           type: integer
+
       additionalProperties: false
       example:
         titulo: Hamlet
         ano_publicacao: 1600
         id_editora: 1
         id_autor: 1
+        
     Autor:
       title: Autor
       required:
@@ -509,6 +517,7 @@ components:
         id_autor: 7
         nome: Enid Blyton
         nacionalidade: Inglesa
+    
     Editoras:
       title: Editora
       required:
@@ -524,6 +533,7 @@ components:
       example:
         id_editora: 11
         nome: Soho Press
+        
     Utilizadores:
       title: Utilizadores
       required:
@@ -539,6 +549,7 @@ components:
       example:
         id_editora: 4
         nome: Luís Macedo
+        
     inline_response_200:
       type: object
       properties:
@@ -580,3 +591,14 @@ components:
       value:
         id: 29
         nome: Catapult
+    AutorExample01:
+      value:
+        id: 23
+        nome: Paulo Coelho
+        nacionalidade: Brasileira
+    AutorExample02:
+      value:
+        id: 30
+        nome: Jin Yong
+        nacionalidade: Chinesa
+        
