@@ -21,7 +21,7 @@ paths:
       operationId: retrieveLivros
       responses:
         "200":
-          description: Array of Livros model instances
+          description: Array of Livros module instances
           content:
             application/json:
               schema:
@@ -40,7 +40,7 @@ paths:
       operationId: insertLivros
       responses:
         "200":
-          description: Array of Livros model instances
+          description: Array of Livros module instances
           content:
             application/json:
               schema:
@@ -172,7 +172,7 @@ paths:
       operationId: retrieveEditoras
       responses:
         "200":
-          description: Array of Editoras model instances
+          description: Array of Editoras module instances
           content:
             application/json:
               schema:
@@ -191,7 +191,7 @@ paths:
       operationId: insertEditoras
       responses:
         "200":
-          description: Array of Editoras model instances
+          description: Array of Editoras module instances
           content:
             application/json:
               schema:
