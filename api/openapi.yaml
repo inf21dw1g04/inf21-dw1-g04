@@ -359,9 +359,9 @@ paths:
             schema:
               $ref: '#/components/schemas/Livros'
             examples:
-              FilmeExample01:
+              LivrosExample01:
                 $ref: '#/components/examples/LivrosExample01'
-              FilmeExample02:
+              LivrosExample02:
                 $ref: '#/components/examples/LivrosExample02'
         required: true
       responses:
@@ -410,65 +410,79 @@ components:
     Livros:
       title: Livros
       required:
-      - genre
-      - id
-      - title
+      - id_livro
       type: object
       properties:
-        id:
+        id_livro:
           type: integer
           format: int64
-        title:
+        titulo:
           type: string
-        release_date:
-          type: string
-          format: time
-        runtime:
+        ano_publicacao:
           type: integer
-        original_title:
-          type: string
-        language:
-          type: string
-        genre:
-          type: string
-        adult:
-          type: string
+        id_editora:
+          type: integer
+        id_autor:
+          type: integer
+
       additionalProperties: false
       example:
-        original_title: original_title
-        release_date: release_date
-        genre: genre
-        runtime: 6
-        language: language
-        id: 0
-        title: title
-        adult: adult
+        titulo: Hamlet
+        ano_publicacao: 1600
+        id_editora: 1
+        id_autor: 1
+        
     Autor:
       title: Autor
       required:
-      - first_name
-      - id
-      - last_name
-      - mail
+      - id_autor
       type: object
       properties:
-        id:
+        id_autor:
           type: integer
           format: int64
-        first_name:
+        nome:
           type: string
-        last_name:
+        nacionalidade:
           type: string
-        mail:
-          type: string
-        lista:
-          type: integer
       additionalProperties: false
       example:
-        mail: mail
-        last_name: last_name
-        id: 0
-        first_name: first_name
+        id_autor: 7
+        nome: Enid Blyton
+        nacionalidade: Inglesa
+    
+    Editoras:
+      title: Editora
+      required:
+      - id_editora
+      type: object
+      properties:
+        id_editora:
+          type: integer
+          format: int64
+        nome:
+          type: string
+      additionalProperties: false
+      example:
+        id_editora: 11
+        nome: Soho Press
+        
+    Utilizadores:
+      title: Utilizadores
+      required:
+      - id_utilizador
+      type: object
+      properties:
+        id_utilizador:
+          type: integer
+          format: int64
+        nome:
+          type: string
+      additionalProperties: false
+      example:
+        id_editora: 4
+        nome: Luís Macedo
+        
     inline_response_200:
       type: object
       properties:
@@ -490,21 +504,24 @@ components:
   examples:
     LivrosExample01:
       value:
-        id: 1
-        title: Spider-Man_No Way Home
-        release_date: 2021-12-15
-        runtime: 148
-        original_title: Spider-Man_No Way Home
-        language: en
-        genre: "action, adventure, science fiction"
-        adult: false
+        id_livro: 22
+        titulo: Beloved
+        ano_publicacao: 1939
+        id_editora: 22
+        id_autor: 22
     LivrosExample02:
       value:
-        id: 2
-        title: Don't Look Up
-        release_date: 2021-12-07
-        runtime: 138
-        original_title: Don't Look Up
-        language: en
-        genre: "comedy, drama, science fiction"
-        adult: false
+        id_livro: 2
+        titulo: Lolita
+        ano_publicacao: 1934
+        id_editora: 2
+        id_autor: 2
+    EditorasExample01:
+      value:
+        id: 23
+        nome: Forever
+    EditorasExample02:
+      value:
+        id: 29
+        nome: Catapult
+        
