@@ -1,24 +1,12 @@
 'use strict';
 
 
-/**
- * Delete Autor
- *
- * id Long 
- * no response value expected for this operation
- **/
 exports.deleteAutor = function(id) {
   return new Promise(function(resolve, reject) {
     resolve();
   });
 }
 
-
-/**
- * Insert Autor
- *
- * returns List
- **/
 exports.insertAutor = function() {
   return new Promise(function(resolve, reject) {
     var examples = {};
@@ -39,12 +27,6 @@ exports.insertAutor = function() {
   });
 }
 
-
-/**
- * Retrieve Autor
- *
- * returns List
- **/
 exports.retrieveAutor = function() {
   return new Promise(function(resolve, reject) {
     var examples = {};
@@ -65,13 +47,6 @@ exports.retrieveAutor = function() {
   });
 }
 
-
-/**
- * Retrieve Autor
- *
- * id Long 
- * returns Livros
- **/
 exports.retrieveAutorId = function(id) {
   return new Promise(function(resolve, reject) {
     var examples = {};
@@ -90,13 +65,6 @@ exports.retrieveAutorId = function(id) {
 }
 
 
-/**
- * Update Autor
- *
- * body Livros 
- * id Long 
- * no response value expected for this operation
- **/
 exports.updateAutor = function(body,id) {
   return new Promise(function(resolve, reject) {
     resolve();
