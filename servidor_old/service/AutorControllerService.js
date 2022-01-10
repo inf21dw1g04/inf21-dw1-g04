@@ -2,40 +2,14 @@
 
 
 /**
- * Delete Autor
+ * Delete Favoritos
  *
- * id Long 
+ * fav Long 
  * no response value expected for this operation
  **/
-exports.deleteAutor = function(id) {
+exports.deleteFavoritos = function(fav) {
   return new Promise(function(resolve, reject) {
     resolve();
-  });
-}
-
-
-/**
- * Insert Autor
- *
- * returns List
- **/
-exports.insertAutor = function() {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "id_autor" : 7,
-  "nome" : "Enid Blyton",
-  "nacionalidade" : "Inglesa"
-}, {
-  "id_autor" : 7,
-  "nome" : "Enid Blyton",
-  "nacionalidade" : "Inglesa"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
   });
 }
 
@@ -49,13 +23,15 @@ exports.retrieveAutor = function() {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
-  "id_autor" : 7,
-  "nome" : "Enid Blyton",
-  "nacionalidade" : "Inglesa"
+  "mail" : "mail",
+  "last_name" : "last_name",
+  "id" : 0,
+  "first_name" : "first_name"
 }, {
-  "id_autor" : 7,
-  "nome" : "Enid Blyton",
-  "nacionalidade" : "Inglesa"
+  "mail" : "mail",
+  "last_name" : "last_name",
+  "id" : 0,
+  "first_name" : "first_name"
 } ];
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -70,16 +46,19 @@ exports.retrieveAutor = function() {
  * Retrieve Autor
  *
  * id Long 
- * returns Livros
+ * first_name String 
+ * last_name String 
+ * mail String 
+ * returns Autor
  **/
-exports.retrieveAutorId = function(id) {
+exports.retrieveAutores = function(id,first_name,last_name,mail) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "titulo" : "Hamlet",
-  "ano_publicacao" : 1600,
-  "id_editora" : 1,
-  "id_autor" : 1
+  "mail" : "mail",
+  "last_name" : "last_name",
+  "id" : 0,
+  "first_name" : "first_name"
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -91,13 +70,41 @@ exports.retrieveAutorId = function(id) {
 
 
 /**
- * Update Autor
+ * Retrieve Favoritos
+ *
+ * fav Long 
+ * returns Livros
+ **/
+exports.retrieveFavoritos = function(fav) {
+  return new Promise(function(resolve, reject) {
+    var examples = {};
+    examples['application/json'] = {
+  "original_title" : "original_title",
+  "release_date" : "release_date",
+  "genre" : "genre",
+  "runtime" : 6,
+  "language" : "language",
+  "id" : 0,
+  "title" : "title",
+  "adult" : "adult"
+};
+    if (Object.keys(examples).length > 0) {
+      resolve(examples[Object.keys(examples)[0]]);
+    } else {
+      resolve();
+    }
+  });
+}
+
+
+/**
+ * Update Favoritos
  *
  * body Livros 
- * id Long 
+ * fav Long 
  * no response value expected for this operation
  **/
-exports.updateAutor = function(body,id) {
+exports.updateFavoritos = function(body,fav) {
   return new Promise(function(resolve, reject) {
     resolve();
   });

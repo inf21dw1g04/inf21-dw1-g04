@@ -33,25 +33,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
       x-swagger-router-controller: LivrosController
-    post:
-      tags:
-      - LivrosController
-      summary: Insert Livros
-      operationId: insertLivros
-      responses:
-        "200":
-          description: Array of Livros model instances
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Livros'
-                x-content-type: application/json
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/inline_response_200'
-      x-swagger-router-controller: LivrosController
   /Livros/{id}:
     get:
       tags:
@@ -94,7 +75,7 @@ paths:
       tags:
       - LivrosController
       summary: Update Livros
-      operationId: updateLivroId
+      operationId: updateLivros
       parameters:
       - name: id
         in: path
@@ -136,34 +117,6 @@ paths:
         "404":
           description: id not found
       x-swagger-router-controller: LivrosController
-    delete:
-      tags:
-      - LivrosController
-      summary: Delete Livro
-      operationId: deleteLivro
-      parameters:
-      - name: id
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          minimum: 1
-          type: integer
-          format: int64
-        examples:
-          one:
-            summary: Delete Livros id 1
-            value: 1
-          two:
-            summary: Delete Livros id 2
-            value: 2
-      responses:
-        "204":
-          description: No Content
-        "404":
-          description: id not found
-      x-swagger-router-controller: AutorController
   /Editoras:
     get:
       tags:
@@ -184,31 +137,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
       x-swagger-router-controller: EditorasController
-    post:
-      tags:
-      - EditorasController
-      summary: Insert Editoras
-      operationId: insertEditoras
-      responses:
-        "200":
-          description: Array of Editoras model instances
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Editoras'
-                x-content-type: application/json
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/inline_response_200'
-      x-swagger-router-controller: EditorasController
   /Editoras/{id}:
     get:
       tags:
       - EditorasController
       summary: Retrieve Editoras
-      operationId: retrieveEditorasId
+      operationId: retrieveEditora
       parameters:
       - name: id
         in: path
@@ -287,34 +221,6 @@ paths:
         "404":
           description: id not found
       x-swagger-router-controller: EditorasController
-    delete:
-      tags:
-      - EditorasController
-      summary: Delete Editora
-      operationId: deleteEditora
-      parameters:
-      - name: id
-        in: path
-        required: true
-        style: simple
-        explode: false
-        schema:
-          minimum: 1
-          type: integer
-          format: int64
-        examples:
-          one:
-            summary: Delete Livros id 1
-            value: 1
-          two:
-            summary: Delete Livros id 2
-            value: 2
-      responses:
-        "204":
-          description: No Content
-        "404":
-          description: id not found
-      x-swagger-router-controller: AutorController
   /Autor:
     get:
       tags:
@@ -335,33 +241,66 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200_1'
       x-swagger-router-controller: AutorController
-    post:
-      tags:
-      - AutorController
-      summary: Insert Autor
-      operationId: insertAutor
-      responses:
-        "200":
-          description: Array of Autor model instances
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Autor'
-                x-content-type: application/json
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/inline_response_200'
-      x-swagger-router-controller: AutorController
-  /Autor/{id}:
+  /Autor/{id}{first_name}{last_name}{mail}:
     get:
       tags:
       - AutorController
       summary: Retrieve Autor
-      operationId: retrieveAutorId
+      operationId: retrieveAutores
       parameters:
       - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 5
+          type: integer
+          format: int64
+      - name: first_name
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: last_name
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: mail
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Autor'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Autor'
+        "400":
+          description: Bad request
+        "404":
+          description: id not found
+      x-swagger-router-controller: AutorController
+  /Autor/{fav}:
+    get:
+      tags:
+      - AutorController
+      summary: Retrieve Favoritos
+      operationId: retrieveFavoritos
+      parameters:
+      - name: fav
         in: path
         required: true
         style: simple
@@ -395,10 +334,10 @@ paths:
     put:
       tags:
       - AutorController
-      summary: Update Autor
-      operationId: updateAutor
+      summary: Update Favoritos
+      operationId: updateFavoritos
       parameters:
-      - name: id
+      - name: fav
         in: path
         required: true
         style: simple
@@ -420,9 +359,9 @@ paths:
             schema:
               $ref: '#/components/schemas/Livros'
             examples:
-              LivrosExample01:
+              FilmeExample01:
                 $ref: '#/components/examples/LivrosExample01'
-              LivrosExample02:
+              FilmeExample02:
                 $ref: '#/components/examples/LivrosExample02'
         required: true
       responses:
@@ -441,10 +380,10 @@ paths:
     delete:
       tags:
       - AutorController
-      summary: Delete Autor
-      operationId: deleteAutor
+      summary: Delete Favoritos
+      operationId: deleteFavoritos
       parameters:
-      - name: id
+      - name: fav
         in: path
         required: true
         style: simple
@@ -471,74 +410,65 @@ components:
     Livros:
       title: Livros
       required:
-      - id_livro
+      - genre
+      - id
+      - title
       type: object
       properties:
-        id_livro:
+        id:
           type: integer
           format: int64
-        titulo:
+        title:
           type: string
-        ano_publicacao:
+        release_date:
+          type: string
+          format: time
+        runtime:
           type: integer
-        id_editora:
-          type: integer
-        id_autor:
-          type: integer
+        original_title:
+          type: string
+        language:
+          type: string
+        genre:
+          type: string
+        adult:
+          type: string
       additionalProperties: false
       example:
-        titulo: Hamlet
-        ano_publicacao: 1600
-        id_editora: 1
-        id_autor: 1
+        original_title: original_title
+        release_date: release_date
+        genre: genre
+        runtime: 6
+        language: language
+        id: 0
+        title: title
+        adult: adult
     Autor:
       title: Autor
       required:
-      - id_autor
+      - first_name
+      - id
+      - last_name
+      - mail
       type: object
       properties:
-        id_autor:
+        id:
           type: integer
           format: int64
-        nome:
+        first_name:
           type: string
-        nacionalidade:
+        last_name:
           type: string
-      additionalProperties: false
-      example:
-        id_autor: 7
-        nome: Enid Blyton
-        nacionalidade: Inglesa
-    Editoras:
-      title: Editora
-      required:
-      - id_editora
-      type: object
-      properties:
-        id_editora:
+        mail:
+          type: string
+        lista:
           type: integer
-          format: int64
-        nome:
-          type: string
       additionalProperties: false
       example:
-        id_editora: 11
-        nome: Soho Press
-    Utilizadores:
-      title: Utilizadores
-      required:
-      - id_utilizador
-      type: object
-      properties:
-        id_utilizador:
-          type: integer
-          format: int64
-        nome:
-          type: string
-      additionalProperties: false
-      example:
-        id_editora: 4
-        nome: Luís Macedo
+        mail: mail
+        last_name: last_name
+        id: 0
+        first_name: first_name
     inline_response_200:
       type: object
       properties:
@@ -560,23 +490,21 @@ components:
   examples:
     LivrosExample01:
       value:
-        id_livro: 22
-        titulo: Beloved
-        ano_publicacao: 1939
-        id_editora: 22
-        id_autor: 22
+        id: 1
+        title: Spider-Man_No Way Home
+        release_date: {}
+        runtime: 148
+        original_title: Spider-Man_No Way Home
+        language: en
+        genre: "action, adventure, science fiction"
+        adult: false
     LivrosExample02:
       value:
-        id_livro: 2
-        titulo: Lolita
-        ano_publicacao: 1934
-        id_editora: 2
-        id_autor: 2
-    EditorasExample01:
-      value:
-        id: 23
-        nome: Forever
-    EditorasExample02:
-      value:
-        id: 29
-        nome: Catapult
+        id: 2
+        title: Don't Look Up
+        release_date: {}
+        runtime: 138
+        original_title: Don't Look Up
+        language: en
+        genre: "comedy, drama, science fiction"
+        adult: false

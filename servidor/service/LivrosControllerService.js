@@ -2,6 +2,47 @@
 
 
 /**
+ * Delete Livro
+ *
+ * id Long 
+ * no response value expected for this operation
+ **/
+exports.deleteLivro = function(id) {
+  return new Promise(function(resolve, reject) {
+    resolve();
+  });
+}
+
+
+/**
+ * Insert Livros
+ *
+ * returns List
+ **/
+exports.insertLivros = function() {
+  return new Promise(function(resolve, reject) {
+    var examples = {};
+    examples['application/json'] = [ {
+  "titulo" : "Hamlet",
+  "ano_publicacao" : 1600,
+  "id_editora" : 1,
+  "id_autor" : 1
+}, {
+  "titulo" : "Hamlet",
+  "ano_publicacao" : 1600,
+  "id_editora" : 1,
+  "id_autor" : 1
+} ];
+    if (Object.keys(examples).length > 0) {
+      resolve(examples[Object.keys(examples)[0]]);
+    } else {
+      resolve();
+    }
+  });
+}
+
+
+/**
  * Retrieve Livros
  *
  * id Long 
@@ -11,14 +52,10 @@ exports.retrieveLivro = function(id) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "original_title" : "original_title",
-  "release_date" : "release_date",
-  "genre" : "genre",
-  "runtime" : 6,
-  "language" : "language",
-  "id" : 0,
-  "title" : "title",
-  "adult" : "adult"
+  "titulo" : "Hamlet",
+  "ano_publicacao" : 1600,
+  "id_editora" : 1,
+  "id_autor" : 1
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -38,23 +75,15 @@ exports.retrieveLivros = function() {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
-  "original_title" : "original_title",
-  "release_date" : "release_date",
-  "genre" : "genre",
-  "runtime" : 6,
-  "language" : "language",
-  "id" : 0,
-  "title" : "title",
-  "adult" : "adult"
+  "titulo" : "Hamlet",
+  "ano_publicacao" : 1600,
+  "id_editora" : 1,
+  "id_autor" : 1
 }, {
-  "original_title" : "original_title",
-  "release_date" : "release_date",
-  "genre" : "genre",
-  "runtime" : 6,
-  "language" : "language",
-  "id" : 0,
-  "title" : "title",
-  "adult" : "adult"
+  "titulo" : "Hamlet",
+  "ano_publicacao" : 1600,
+  "id_editora" : 1,
+  "id_autor" : 1
 } ];
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -72,7 +101,7 @@ exports.retrieveLivros = function() {
  * id Long 
  * no response value expected for this operation
  **/
-exports.updateLivros = function(body,id) {
+exports.updateLivroId = function(body,id) {
   return new Promise(function(resolve, reject) {
     resolve();
   });
