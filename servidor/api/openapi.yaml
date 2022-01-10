@@ -1,0 +1,510 @@
+openapi: 3.0.0
+info:
+  title: Biblioteca
+  description: M2 - Biblioteca
+  contact:
+    name: my student id
+    email: my.student.email@intitution.country
+  version: 0.0.1
+servers:
+- url: http://localhost:8080
+  description: My localhost
+  variables:
+    basePath:
+      default: /
+paths:
+  /Livros:
+    get:
+      tags:
+      - LivrosController
+      summary: Retrieve Livros
+      operationId: retrieveLivros
+      responses:
+        "200":
+          description: Array of Livros model instances
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Livros'
+                x-content-type: application/json
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+      x-swagger-router-controller: LivrosController
+  /Livros/{id}:
+    get:
+      tags:
+      - LivrosController
+      summary: Retrieve Livros
+      operationId: retrieveLivro
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 1
+          type: integer
+          format: int64
+        examples:
+          one:
+            summary: Retrieve Livros id 1
+            value: 1
+          two:
+            summary: Retrieve Livros id 2
+            value: 2
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Livros'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Livros'
+        "400":
+          description: Bad request
+        "404":
+          description: id not found
+      x-swagger-router-controller: LivrosController
+    put:
+      tags:
+      - LivrosController
+      summary: Update Livros
+      operationId: updateLivros
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 1
+          type: integer
+          format: int64
+        examples:
+          one:
+            summary: Update Livros id 1
+            value: 1
+          two:
+            summary: Update Livros id 2
+            value: 2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Livros'
+            examples:
+              LivrosExample01:
+                $ref: '#/components/examples/LivrosExample01'
+              LivrosExample02:
+                $ref: '#/components/examples/LivrosExample02'
+        required: true
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                description: Livros PUT success
+                x-content-type: application/json
+        "400":
+          description: Bad request
+        "404":
+          description: id not found
+      x-swagger-router-controller: LivrosController
+  /Editoras:
+    get:
+      tags:
+      - EditorasController
+      summary: Retrieve Editoras
+      operationId: retrieveEditoras
+      responses:
+        "200":
+          description: Array of Editoras model instances
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Editoras'
+                x-content-type: application/json
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+      x-swagger-router-controller: EditorasController
+  /Editoras/{id}:
+    get:
+      tags:
+      - EditorasController
+      summary: Retrieve Editoras
+      operationId: retrieveEditora
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 1
+          type: integer
+          format: int64
+        examples:
+          one:
+            summary: Retrieve Editoras id 1
+            value: 1
+          two:
+            summary: Retrieve Editoras id 2
+            value: 2
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Editoras'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Editoras'
+        "400":
+          description: Bad request
+        "404":
+          description: id not found
+      x-swagger-router-controller: EditorasController
+    put:
+      tags:
+      - EditorasController
+      summary: Update Editoras
+      operationId: updateEditoras
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 1
+          type: integer
+          format: int64
+        examples:
+          one:
+            summary: Update Editoras id 1
+            value: 1
+          two:
+            summary: Update Editoras id 2
+            value: 2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Editoras'
+            examples:
+              EditorasExample01:
+                $ref: '#/components/examples/EditorasExample01'
+              EditorasExample02:
+                $ref: '#/components/examples/EditorasExample02'
+        required: true
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                description: Editoras PUT success
+                x-content-type: application/json
+        "400":
+          description: Bad request
+        "404":
+          description: id not found
+      x-swagger-router-controller: EditorasController
+  /Autor:
+    get:
+      tags:
+      - AutorController
+      summary: Retrieve Autor
+      operationId: retrieveAutor
+      responses:
+        "200":
+          description: Array of Autor model instances
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Autor'
+                x-content-type: application/json
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/inline_response_200_1'
+      x-swagger-router-controller: AutorController
+  /Autor/{id}{first_name}{last_name}{mail}:
+    get:
+      tags:
+      - AutorController
+      summary: Retrieve Autor
+      operationId: retrieveAutores
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 5
+          type: integer
+          format: int64
+      - name: first_name
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: last_name
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: mail
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Autor'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Autor'
+        "400":
+          description: Bad request
+        "404":
+          description: id not found
+      x-swagger-router-controller: AutorController
+  /Autor/{fav}:
+    get:
+      tags:
+      - AutorController
+      summary: Retrieve Favoritos
+      operationId: retrieveFavoritos
+      parameters:
+      - name: fav
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 2
+          type: integer
+          format: int64
+        examples:
+          one:
+            summary: Retrieve Livros id 1
+            value: 1
+          two:
+            summary: Retrieve Livros id 2
+            value: 2
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Livros'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Livros'
+        "400":
+          description: Bad request
+        "404":
+          description: id not found
+      x-swagger-router-controller: AutorController
+    put:
+      tags:
+      - AutorController
+      summary: Update Favoritos
+      operationId: updateFavoritos
+      parameters:
+      - name: fav
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 1
+          type: integer
+          format: int64
+        examples:
+          one:
+            summary: Update Livros id 1
+            value: 1
+          two:
+            summary: Update Livros id 2
+            value: 2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Livros'
+            examples:
+              FilmeExample01:
+                $ref: '#/components/examples/LivrosExample01'
+              FilmeExample02:
+                $ref: '#/components/examples/LivrosExample02'
+        required: true
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                description: Livros PUT success
+                x-content-type: application/json
+        "400":
+          description: Bad request
+        "404":
+          description: id not found
+      x-swagger-router-controller: AutorController
+    delete:
+      tags:
+      - AutorController
+      summary: Delete Favoritos
+      operationId: deleteFavoritos
+      parameters:
+      - name: fav
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 1
+          type: integer
+          format: int64
+        examples:
+          one:
+            summary: Delete Livros id 1
+            value: 1
+          two:
+            summary: Delete Livros id 2
+            value: 2
+      responses:
+        "204":
+          description: No Content
+        "404":
+          description: id not found
+      x-swagger-router-controller: AutorController
+components:
+  schemas:
+    Livros:
+      title: Livros
+      required:
+      - genre
+      - id
+      - title
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        title:
+          type: string
+        release_date:
+          type: string
+          format: time
+        runtime:
+          type: integer
+        original_title:
+          type: string
+        language:
+          type: string
+        genre:
+          type: string
+        adult:
+          type: string
+      additionalProperties: false
+      example:
+        original_title: original_title
+        release_date: release_date
+        genre: genre
+        runtime: 6
+        language: language
+        id: 0
+        title: title
+        adult: adult
+    Autor:
+      title: Autor
+      required:
+      - first_name
+      - id
+      - last_name
+      - mail
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        first_name:
+          type: string
+        last_name:
+          type: string
+        mail:
+          type: string
+        lista:
+          type: integer
+      additionalProperties: false
+      example:
+        mail: mail
+        last_name: last_name
+        id: 0
+        first_name: first_name
+    inline_response_200:
+      type: object
+      properties:
+        Lesson:
+          type: array
+          items:
+            $ref: '#/components/schemas/Livros'
+      xml:
+        name: Livros
+    inline_response_200_1:
+      type: object
+      properties:
+        Lesson:
+          type: array
+          items:
+            $ref: '#/components/schemas/Autor'
+      xml:
+        name: Livros
+  examples:
+    LivrosExample01:
+      value:
+        id: 1
+        title: Spider-Man_No Way Home
+        release_date: {}
+        runtime: 148
+        original_title: Spider-Man_No Way Home
+        language: en
+        genre: "action, adventure, science fiction"
+        adult: false
+    LivrosExample02:
+      value:
+        id: 2
+        title: Don't Look Up
+        release_date: {}
+        runtime: 138
+        original_title: Don't Look Up
+        language: en
+        genre: "comedy, drama, science fiction"
+        adult: false
