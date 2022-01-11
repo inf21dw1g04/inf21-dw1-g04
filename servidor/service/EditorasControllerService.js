@@ -55,7 +55,7 @@ exports.insertEditoras = function() {
 exports.insertEditoras = function(body) {
   return new Promise(function(resolve, reject) {
     console.log(body);
-    sql.query("INSERT * FROM editora (nome) Values(?)", [body.nome], function(err, res){
+    sql.query("INSERT * FROM editora (id_editora, nome) Values(?,?)", [body.id_editora, body.nome], function(err, res){
       if (err){
         console.log(err);
         reject(err);
@@ -158,7 +158,7 @@ exports.updateEditoras = function(body,id) {
 exports.updateAutor = function(body,id) {
   return new Promise(function(resolve, reject) {
     console.log(body);
-    sql.query("INSERT * FROM autor set nome = ?", [body.nome] , function(err, res){
+    sql.query("INSERT * FROM autor set id_editora = ?, nome = ?", [body.id_editora, body.nome] , function(err, res){
       if (err){
         console.log(err);
         reject(err);

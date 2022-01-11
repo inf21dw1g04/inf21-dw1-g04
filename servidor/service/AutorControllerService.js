@@ -58,7 +58,7 @@ exports.insertAutor = function() {
 exports.insertAutor = function(body) {
   return new Promise(function(resolve, reject) {
     console.log(body);
-    sql.query("INSERT * FROM autor (nome, nacionalidade) Values(?,?)", [body.nome, body.nacionalidade], function(err, res){
+    sql.query("INSERT * FROM autor (id_autor, nome, nacionalidade) Values(?,?,?)", [body.id_autor, body.nome, body.nacionalidade], function(err, res){
       if (err){
         console.log(err);
         reject(err);
@@ -165,7 +165,7 @@ exports.updateAutor = function(body,id) {
 exports.updateAutor = function(body,id) {
   return new Promise(function(resolve, reject) {
     console.log(body);
-    sql.query("INSERT * FROM autor set nome = ?, nacionalidade = ?", [body.nome, body.nacionalidade] , function(err, res){
+    sql.query("INSERT * FROM autor set id_autor = ?, nome = ?, nacionalidade = ?", [body.id_autor, body.nome, body.nacionalidade] , function(err, res){
       if (err){
         console.log(err);
         reject(err);
