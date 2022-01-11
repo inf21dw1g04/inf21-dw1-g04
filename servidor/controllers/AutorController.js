@@ -14,7 +14,8 @@ module.exports.deleteAutor = function deleteAutor (req, res, next, id) {
 };
 
 module.exports.insertAutor = function insertAutor (req, res, next) {
-  AutorController.insertAutor()
+  AutorController.insertAutor(body)
+    .then(AutorController.retrieveAutor)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -45,6 +46,7 @@ module.exports.retrieveAutorId = function retrieveAutorId (req, res, next, id) {
 
 module.exports.updateAutor = function updateAutor (req, res, next, body, id) {
   AutorController.updateAutor(body, id)
+    .then(AutorController.retrieveAutor)
     .then(function (response) {
       utils.writeJson(res, response);
     })
