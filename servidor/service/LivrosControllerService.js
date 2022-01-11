@@ -59,7 +59,7 @@ exports.insertLivros = function() {
 exports.insertLivros = function(body) {
   return new Promise(function(resolve, reject) {
     console.log(body);
-    sql.query("INSERT * FROM livro (id_livro, titulo, ano_publicacao, id_editora, id_autor) Values(?,?,?,?,?)", [body.id_livro, body.titulo, body.ano_publicacao, body.id_editora, body.id_autor], function(err, res){
+    sql.query("INSERT * FROM livro (titulo, ano_publicacao) Values(?,?)", [body.titulo, body.ano_publicacao], function(err, res){
       if (err){
         console.log(err);
         reject(err);
@@ -168,7 +168,7 @@ exports.updateLivroId = function(body,id) {
 exports.updateLivro = function(body,id) {
   return new Promise(function(resolve, reject) {
     console.log(body);
-    sql.query("INSERT * FROM livro set id_livro = ?, titulo = ?, ano_publicacao = ?, id_editora = ?, id_autor = ?", [body.id_livro, body.titulo, body.ano_publicacao, id_editora, id_autor] , function(err, res){
+    sql.query("INSERT * FROM livro set titulo = ?, ano_publicacao = ?", [body.titulo, body.ano_publicacao] , function(err, res){
       if (err){
         console.log(err);
         reject(err);
