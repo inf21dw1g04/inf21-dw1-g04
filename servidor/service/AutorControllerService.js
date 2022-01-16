@@ -29,7 +29,6 @@ exports.deleteAutor = function(id) {
   });
 }
 
-
 /**
  * Insert Autor
  *
