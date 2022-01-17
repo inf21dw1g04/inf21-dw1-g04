@@ -12,6 +12,11 @@ An example report using markdown on Github. This documentation is writen using [
 * Report chapters are in [doc folder](doc/).
 * Initial [OpenApi document](api/openapi.yaml)
 
+## Gallery
+
+_Please provide a galery of the final result, with small images_
+A [table](https://www.markdownguide.org/extended-syntax/#tables) may be usefull to organize the images.
+
 ## Technologies
 
 * Javascript (https://developer.mozilla.org/en-US/docs/Web/JavaScript/About_JavaScript)
@@ -25,26 +30,14 @@ An example report using markdown on Github. This documentation is writen using [
 
 ### Frameworks and Libraries
 
+_Did you use any aditional libraries? Describe them here._
 * Docker
 * Multipass
 * NodeJS
 * JQuery
 
 ## Report
-
-* Chapter 1: [api/openapi.yaml](api/openapi.yaml)
-* Chapter 2: [doc](doc)
-* Chapter 3: [doc/images](doc/images)
-* Chapter 4: [servidor](servidor)
-* Chapter 5: [servidor/.swagger-codegen](servidor/.swagger-codegen)
-* Chapter 6: [servidor/api](servidor/api)
-* Chapter 7: [servidor/controllers](servidor/controllers)
-* Chapter 8: [servidor/node_modules](servidor/node_modules)
-* Chapter 9: [servidor/service](servidor/service)
-* Chapter 10: [servidor/utils](servidor/utils)
-* Chapter 11: [servidor/package.json](servidor/package.json)
-* Chapter 12: [src](src)
-* Chapter 12: [LICENSE](LICENSE)
+_Please add at least on section (a file) per Chapter. But you can add more._
 
 ### Project presentation
 * Chapter 1: [Project presentation](doc/c1.md)
