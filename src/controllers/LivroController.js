@@ -1,10 +1,10 @@
 'use strict';
 
 var utils = require('../utils/writer.js');
-var AutorController = require('../service/AutorControllerService');
+var LivroController = require('../service/LivroControllerService');
 
-module.exports.deleteAutor = function deleteAutor (req, res, next, id) {
-  AutorController.deleteAutor(id)
+module.exports.deleteLivro = function deleteLivro (req, res, next, id) {
+  LivroController.deleteLivro(id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -13,8 +13,8 @@ module.exports.deleteAutor = function deleteAutor (req, res, next, id) {
     });
 };
 
-module.exports.insertAutor = function insertAutor (req, res, next, body) {
-  AutorController.insertAutor(body)
+module.exports.insertLivro = function insertLivro (req, res, next, body) {
+  LivroController.insertLivro(body)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -23,8 +23,8 @@ module.exports.insertAutor = function insertAutor (req, res, next, body) {
     });
 };
 
-module.exports.retrieveAutorId = function retrieveAutorId (req, res, next, id) {
-  AutorController.retrieveAutorId(id)
+module.exports.retrieveLivro = function retrieveLivro (req, res, next, id) {
+  LivroController.retrieveLivro(id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -33,8 +33,8 @@ module.exports.retrieveAutorId = function retrieveAutorId (req, res, next, id) {
     });
 };
 
-module.exports.retrieveAutores = function retrieveAutores (req, res, next) {
-  AutorController.retrieveAutores()
+module.exports.retrieveLivros = function retrieveLivros (req, res, next) {
+  LivroController.retrieveLivros()
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -43,8 +43,8 @@ module.exports.retrieveAutores = function retrieveAutores (req, res, next) {
     });
 };
 
-module.exports.updateAutor = function updateAutor (req, res, next, body, id) {
-  AutorController.updateAutor(body, id)
+module.exports.updateLivroId = function updateLivroId (req, res, next, body, id) {
+  LivroController.updateLivroId(body, id)
     .then(function (response) {
       utils.writeJson(res, response);
     })

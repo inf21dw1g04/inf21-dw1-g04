@@ -3,8 +3,8 @@ info:
   title: Biblioteca
   description: M2 - Biblioteca
   contact:
-    name: my student id
-    email: my.student.email@intitution.country
+    name: Grupo 4
+    email: a039291@ismai.pt
   version: 0.0.1
 servers:
 - url: http://localhost:8080
@@ -13,50 +13,69 @@ servers:
     basePath:
       default: /
 paths:
-  /Livros:
+  /Livro:
     get:
       tags:
-      - LivrosController
+      - LivroController
       summary: Retrieve Livros
       operationId: retrieveLivros
       responses:
         "200":
-          description: Array of Livros module instances
+          description: Array of Livro model instances
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Livros'
+                  $ref: '#/components/schemas/Livro'
                 x-content-type: application/json
             application/xml:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
-      x-swagger-router-controller: LivrosController
+      x-swagger-router-controller: LivroController
     post:
       tags:
-      - LivrosController
-      summary: Insert Livros
-      operationId: insertLivros
+      - LivroController
+      summary: Insert Livro
+      operationId: insertLivro
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Livro'
+            examples:
+              LivroInsert:
+                $ref: '#/components/examples/LivroInsert'
+              LivroExample01:
+                $ref: '#/components/examples/LivroExample01'
+              LivroExample02:
+                $ref: '#/components/examples/LivroExample02'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Livro'
+            examples:
+              LivroExample01:
+                $ref: '#/components/examples/LivroExample01'
+              LivroExample02:
+                $ref: '#/components/examples/LivroExample02'
       responses:
         "200":
-          description: Array of Livros module instances
+          description: Insert a Livro model instance
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Livros'
-                x-content-type: application/json
+                $ref: '#/components/schemas/Livro'
             application/xml:
               schema:
-                $ref: '#/components/schemas/inline_response_200'
-      x-swagger-router-controller: LivrosController
-  /Livros/{id}:
+                $ref: '#/components/schemas/Livro'
+        "400":
+          description: Bad Request
+      x-swagger-router-controller: LivroController
+  /Livro/{id}:
     get:
       tags:
-      - LivrosController
-      summary: Retrieve Livros
+      - LivroController
+      summary: Retrieve Livro
       operationId: retrieveLivro
       parameters:
       - name: id
@@ -70,10 +89,10 @@ paths:
           format: int64
         examples:
           one:
-            summary: Retrieve Livros id 1
+            summary: Retrieve Livro id 1
             value: 1
           two:
-            summary: Retrieve Livros id 2
+            summary: Retrieve Livro id 2
             value: 2
       responses:
         "200":
@@ -81,19 +100,19 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Livros'
+                $ref: '#/components/schemas/Livro'
             application/xml:
               schema:
-                $ref: '#/components/schemas/Livros'
+                $ref: '#/components/schemas/Livro'
         "400":
           description: Bad request
         "404":
           description: id not found
-      x-swagger-router-controller: LivrosController
+      x-swagger-router-controller: LivroController
     put:
       tags:
-      - LivrosController
-      summary: Update Livros
+      - LivroController
+      summary: Update Livro
       operationId: updateLivroId
       parameters:
       - name: id
@@ -107,21 +126,23 @@ paths:
           format: int64
         examples:
           one:
-            summary: Update Livros id 1
+            summary: Update Livro id 1
             value: 1
           two:
-            summary: Update Livros id 2
+            summary: Update Livro id 2
             value: 2
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Livros'
+              $ref: '#/components/schemas/Livro'
             examples:
-              LivrosExample01:
-                $ref: '#/components/examples/LivrosExample01'
-              LivrosExample02:
-                $ref: '#/components/examples/LivrosExample02'
+              LivroUpdate:
+                $ref: '#/components/examples/LivroInsert'
+              LivroExample01:
+                $ref: '#/components/examples/LivroExample01'
+              LivroExample02:
+                $ref: '#/components/examples/LivroExample02'
         required: true
       responses:
         "200":
@@ -129,16 +150,16 @@ paths:
           content:
             application/json:
               schema:
-                description: Livros PUT success
+                description: Livro PUT success
                 x-content-type: application/json
         "400":
           description: Bad request
         "404":
           description: id not found
-      x-swagger-router-controller: LivrosController
+      x-swagger-router-controller: LivroController
     delete:
       tags:
-      - LivrosController
+      - LivroController
       summary: Delete Livro
       operationId: deleteLivro
       parameters:
@@ -153,10 +174,10 @@ paths:
           format: int64
         examples:
           one:
-            summary: Delete Livros id 1
+            summary: Delete Livro id 1
             value: 1
           two:
-            summary: Delete Livros id 2
+            summary: Delete Livro id 2
             value: 2
       responses:
         "204":
@@ -164,51 +185,65 @@ paths:
         "404":
           description: id not found
       x-swagger-router-controller: AutorController
-  /Editoras:
+  /Editora:
     get:
       tags:
-      - EditorasController
+      - EditoraController
       summary: Retrieve Editoras
       operationId: retrieveEditoras
       responses:
         "200":
-          description: Array of Editoras module instances
+          description: Array of Editora model instances
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Editoras'
+                  $ref: '#/components/schemas/Editora'
                 x-content-type: application/json
             application/xml:
               schema:
-                $ref: '#/components/schemas/inline_response_200'
-      x-swagger-router-controller: EditorasController
+                $ref: '#/components/schemas/inline_response_200_1'
+      x-swagger-router-controller: EditoraController
     post:
       tags:
-      - EditorasController
-      summary: Insert Editoras
-      operationId: insertEditoras
+      - EditoraController
+      summary: Insert Editora
+      operationId: insertEditora
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Editora'
+            examples:
+              EditoraInsert:
+                $ref: '#/components/examples/EditoraInsert'
+              EditoraExample01:
+                $ref: '#/components/examples/EditoraExample01'
+              EditoraExample02:
+                $ref: '#/components/examples/EditoraExample02'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Editora'
       responses:
         "200":
-          description: Array of Editoras module instances
+          description: Create a Editora model instances
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Editoras'
-                x-content-type: application/json
+                $ref: '#/components/schemas/Editora'
             application/xml:
               schema:
-                $ref: '#/components/schemas/inline_response_200'
-      x-swagger-router-controller: EditorasController
-  /Editoras/{id}:
+                $ref: '#/components/schemas/Editora'
+        "400":
+          description: Bad request
+      x-swagger-router-controller: EditoraController
+  /Editora/{id}:
     get:
       tags:
-      - EditorasController
-      summary: Retrieve Editoras
-      operationId: retrieveEditorasId
+      - EditoraController
+      summary: Retrieve Editora
+      operationId: retrieveEditora
       parameters:
       - name: id
         in: path
@@ -221,10 +256,10 @@ paths:
           format: int64
         examples:
           one:
-            summary: Retrieve Editoras id 1
+            summary: Retrieve Editora id 1
             value: 1
           two:
-            summary: Retrieve Editoras id 2
+            summary: Retrieve Editora id 2
             value: 2
       responses:
         "200":
@@ -232,20 +267,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Editoras'
+                $ref: '#/components/schemas/Editora'
             application/xml:
               schema:
-                $ref: '#/components/schemas/Editoras'
+                $ref: '#/components/schemas/Editora'
         "400":
           description: Bad request
         "404":
           description: id not found
-      x-swagger-router-controller: EditorasController
+      x-swagger-router-controller: EditoraController
     put:
       tags:
-      - EditorasController
-      summary: Update Editoras
-      operationId: updateEditoras
+      - EditoraController
+      summary: Update Editora
+      operationId: updateEditora
       parameters:
       - name: id
         in: path
@@ -258,21 +293,23 @@ paths:
           format: int64
         examples:
           one:
-            summary: Update Editoras id 1
+            summary: Update Editora id 1
             value: 1
           two:
-            summary: Update Editoras id 2
+            summary: Update Editora id 2
             value: 2
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Editoras'
+              $ref: '#/components/schemas/Editora'
             examples:
-              EditorasExample01:
-                $ref: '#/components/examples/EditorasExample01'
-              EditorasExample02:
-                $ref: '#/components/examples/EditorasExample02'
+              EditoraUpdate:
+                $ref: '#/components/examples/EditoraInsert'
+              EditoraExample01:
+                $ref: '#/components/examples/EditoraExample01'
+              EditoraExample02:
+                $ref: '#/components/examples/EditoraExample02'
         required: true
       responses:
         "200":
@@ -280,16 +317,16 @@ paths:
           content:
             application/json:
               schema:
-                description: Editoras PUT success
+                description: Editora PUT success
                 x-content-type: application/json
         "400":
           description: Bad request
         "404":
           description: id not found
-      x-swagger-router-controller: EditorasController
+      x-swagger-router-controller: EditoraController
     delete:
       tags:
-      - EditorasController
+      - EditoraController
       summary: Delete Editora
       operationId: deleteEditora
       parameters:
@@ -304,45 +341,26 @@ paths:
           format: int64
         examples:
           one:
-            summary: Delete Livros id 1
+            summary: Delete Livro id 1
             value: 1
           two:
-            summary: Delete Livros id 2
+            summary: Delete Livro id 2
             value: 2
       responses:
         "204":
           description: No Content
         "404":
           description: id not found
-      x-swagger-router-controller: AutorController
+      x-swagger-router-controller: EditoraController
   /Autor:
     get:
       tags:
       - AutorController
-      summary: Retrieve Autor
-      operationId: retrieveAutor
+      summary: Retrieve Autores
+      operationId: retrieveAutores
       responses:
         "200":
-          description: Array of Autor module instances
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Autor'
-                x-content-type: application/json
-            application/xml:
-              schema:
-                $ref: '#/components/schemas/inline_response_200_1'
-      x-swagger-router-controller: AutorController
-    post:
-      tags:
-      - AutorController
-      summary: Insert Autor
-      operationId: insertAutor
-      responses:
-        "200":
-          description: Array of Autor module instances
+          description: Array of Autor model instances
           content:
             application/json:
               schema:
@@ -353,6 +371,46 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
+      x-swagger-router-controller: AutorController
+    post:
+      tags:
+      - AutorController
+      summary: Insert Autor
+      operationId: insertAutor
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Autor'
+            examples:
+              AutorInsert:
+                $ref: '#/components/examples/AutorInsert'
+              AutorExample01:
+                $ref: '#/components/examples/AutorExample01'
+              AutorExample02:
+                $ref: '#/components/examples/AutorExample02'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Autor'
+            examples:
+              AutorInsert:
+                $ref: '#/components/examples/AutorInsert'
+              Autore01:
+                $ref: '#/components/examples/AutorExample01'
+              Autore02:
+                $ref: '#/components/examples/AutorExample02'
+      responses:
+        "200":
+          description: Insert a Autor model instances
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Autor'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Autor'
+        "400":
+          description: Bad request
       x-swagger-router-controller: AutorController
   /Autor/{id}:
     get:
@@ -420,6 +478,8 @@ paths:
             schema:
               $ref: '#/components/schemas/Autor'
             examples:
+              AutorUpdate:
+                $ref: '#/components/examples/AutorInsert'
               AutorExample01:
                 $ref: '#/components/examples/AutorExample01'
               AutorExample02:
@@ -466,12 +526,261 @@ paths:
         "404":
           description: id not found
       x-swagger-router-controller: AutorController
+  /Utilizador:
+    get:
+      tags:
+      - UtilizadorController
+      summary: Retrieve Utilizadores
+      operationId: retrieveUtilizadores
+      responses:
+        "200":
+          description: Array of Utilizador model instances
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Utilizador'
+                x-content-type: application/json
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+      x-swagger-router-controller: UtilizadorController
+    post:
+      tags:
+      - UtilizadorController
+      summary: Insert Utilizador
+      operationId: insertUtilizador
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Utilizador'
+            examples:
+              UtilizadorInsert:
+                $ref: '#/components/examples/UtilizadorInsert'
+              UtilizadorExample01:
+                $ref: '#/components/examples/UtilizadorExample01'
+              UtilizadorExample02:
+                $ref: '#/components/examples/UtilizadorExample02'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/Utilizador'
+            examples:
+              UtilizadorInsert:
+                $ref: '#/components/examples/UtilizadorInsert'
+              Utilizadore01:
+                $ref: '#/components/examples/UtilizadorExample01'
+              Utilizadore02:
+                $ref: '#/components/examples/UtilizadorExample02'
+      responses:
+        "200":
+          description: Insert a Utilizador model instances
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Utilizador'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Utilizador'
+        "400":
+          description: Bad request
+      x-swagger-router-controller: UtilizadorController
+  /Utilizador/{id}:
+    get:
+      tags:
+      - UtilizadorController
+      summary: Retrieve Utilizador
+      operationId: retrieveUtilizadorId
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 2
+          type: integer
+          format: int64
+        examples:
+          one:
+            summary: Retrieve Utilizador id 1
+            value: 1
+          two:
+            summary: Retrieve Utilizador id 2
+            value: 2
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Utilizador'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Utilizador'
+        "400":
+          description: Bad request
+        "404":
+          description: id not found
+      x-swagger-router-controller: UtilizadorController
+    put:
+      tags:
+      - UtilizadorController
+      summary: Update Utilizador
+      operationId: updateUtilizador
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 1
+          type: integer
+          format: int64
+        examples:
+          one:
+            summary: Update Utilizador id 1
+            value: 1
+          two:
+            summary: Update Utilizador id 2
+            value: 2
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Utilizador'
+            examples:
+              UtilizadorUpdate:
+                $ref: '#/components/examples/UtilizadorInsert'
+              UtilizadorExample01:
+                $ref: '#/components/examples/UtilizadorExample01'
+              UtilizadorExample02:
+                $ref: '#/components/examples/UtilizadorExample02'
+        required: true
+      responses:
+        "200":
+          description: Success
+          content:
+            application/json:
+              schema:
+                description: Utilizador PUT success
+                x-content-type: application/json
+        "400":
+          description: Bad request
+        "404":
+          description: id not found
+      x-swagger-router-controller: UtilizadorController
+    delete:
+      tags:
+      - UtilizadorController
+      summary: Delete Utilizador
+      operationId: deleteUtilizador
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 1
+          type: integer
+          format: int64
+        examples:
+          one:
+            summary: Delete Utilizador id 1
+            value: 1
+          two:
+            summary: Delete Utilizador id 2
+            value: 2
+      responses:
+        "204":
+          description: No Content
+        "404":
+          description: id not found
+      x-swagger-router-controller: UtilizadorController
+  /Livro/{id}/Editora:
+    get:
+      tags:
+      - LivroByEditoraController
+      summary: Retrieve Livro based on Editora ID
+      operationId: retrieveLivroOnEditora
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 1
+          type: integer
+          format: int64
+        examples:
+          one:
+            summary: Retrieve Editora id 1
+            value: 1
+          two:
+            summary: Retrieve Editora id 2
+            value: 2
+      responses:
+        "200":
+          description: Array of Editora model instances
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Editora'
+                x-content-type: application/json
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+      x-swagger-router-controller: LivroByEditoraController
+  /Livro/{id}/Autor:
+    get:
+      tags:
+      - LivroByAutorController
+      summary: Retrieve Livro based on Autor ID
+      operationId: retrieveLivroOnAutor
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 1
+          type: integer
+          format: int64
+        examples:
+          one:
+            summary: Retrieve Autor id 1
+            value: 1
+          two:
+            summary: Retrieve Autor id 2
+            value: 2
+      responses:
+        "200":
+          description: Array of Autor model instances
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Autor'
+                x-content-type: application/json
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+      x-swagger-router-controller: LivroByAutorController
 components:
   schemas:
-    Livros:
-      title: Livros
+    Livro:
+      title: Livro
       required:
       - id_livro
+      - titulo
       type: object
       properties:
         id_livro:
@@ -487,14 +796,15 @@ components:
           type: integer
       additionalProperties: false
       example:
-        titulo: Hamlet
-        ano_publicacao: 1600
+        titulo: titulo
+        ano_publicacao: ano
         id_editora: 1
         id_autor: 1
     Autor:
       title: Autor
       required:
       - id_autor
+      - nome
       type: object
       properties:
         id_autor:
@@ -509,10 +819,11 @@ components:
         id_autor: 7
         nome: Enid Blyton
         nacionalidade: Inglesa
-    Editoras:
+    Editora:
       title: Editora
       required:
       - id_editora
+      - nome
       type: object
       properties:
         id_editora:
@@ -524,10 +835,11 @@ components:
       example:
         id_editora: 11
         nome: Soho Press
-    Utilizadores:
-      title: Utilizadores
+    Utilizador:
+      title: Utilizador
       required:
       - id_utilizador
+      - nome
       type: object
       properties:
         id_utilizador:
@@ -545,9 +857,9 @@ components:
         Lesson:
           type: array
           items:
-            $ref: '#/components/schemas/Livros'
+            $ref: '#/components/schemas/Livro'
       xml:
-        name: Livros
+        name: Livro
     inline_response_200_1:
       type: object
       properties:
@@ -556,37 +868,61 @@ components:
           items:
             $ref: '#/components/schemas/Autor'
       xml:
-        name: Livros
+        name: Livro
   examples:
-    LivrosExample01:
+    LivroExample01:
       value:
-        id_livro: 22
-        titulo: Beloved
-        ano_publicacao: 1939
-        id_editora: 22
-        id_autor: 22
-    LivrosExample02:
+        id_livro: 1
+        titulo: Livro1
+        ano_publicacao: 1990
+        id_editora: 1
+        id_autor: 1
+    LivroExample02:
       value:
         id_livro: 2
-        titulo: Lolita
-        ano_publicacao: 1934
+        titulo: Livro2
+        ano_publicacao: 1985
         id_editora: 2
         id_autor: 2
-    EditorasExample01:
+    LivroInsert:
       value:
-        id: 23
-        nome: Forever
-    EditorasExample02:
+        titulo: Titulo do livro
+        ano_publicacao: Ano de Publicação
+        id_editora: Id da Editora
+        id_autor: Id do Autor
+    EditoraExample01:
       value:
-        id: 29
-        nome: Catapult
+        id: 1
+        nome: Editora1
+    EditoraExample02:
+      value:
+        id: 2
+        nome: Editora2
+    EditoraInsert:
+      value:
+        nome: Nome da Editora
     AutorExample01:
       value:
-        id: 23
-        nome: Paulo Coelho
-        nacionalidade: Brasileira
+        id: 1
+        nome: Autor1
+        nacionalidade: Portuguesa
     AutorExample02:
       value:
-        id: 30
-        nome: Jin Yong
-        nacionalidade: Chinesa
+        id: 2
+        nome: Autor2
+        nacionalidade: Inglesa
+    AutorInsert:
+      value:
+        nome: Nome do Autor
+        nacionalidade: Nacionalidade do Autor
+    UtilizadorExample01:
+      value:
+        id: 1
+        nome: Utilizador1
+    UtilizadorExample02:
+      value:
+        id: 2
+        nome: Utilizador2
+    UtilizadorInsert:
+      value:
+        nome: Nome do Utilizador

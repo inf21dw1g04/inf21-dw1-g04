@@ -2,12 +2,12 @@
 
 
 /**
- * Delete Autor
+ * Delete Livro
  *
  * id Long 
  * no response value expected for this operation
  **/
-exports.deleteAutor = function(id) {
+exports.deleteLivro = function(id) {
   return new Promise(function(resolve, reject) {
     resolve();
   });
@@ -15,18 +15,19 @@ exports.deleteAutor = function(id) {
 
 
 /**
- * Insert Autor
+ * Insert Livro
  *
- * body Autor  (optional)
- * returns Autor
+ * body Livro  (optional)
+ * returns Livro
  **/
-exports.insertAutor = function(body) {
+exports.insertLivro = function(body) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "id_autor" : 7,
-  "nome" : "Enid Blyton",
-  "nacionalidade" : "Inglesa"
+  "titulo" : "titulo",
+  "ano_publicacao" : "ano",
+  "id_editora" : 1,
+  "id_autor" : 1
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -38,18 +39,19 @@ exports.insertAutor = function(body) {
 
 
 /**
- * Retrieve Autor
+ * Retrieve Livro
  *
  * id Long 
- * returns Autor
+ * returns Livro
  **/
-exports.retrieveAutorId = function(id) {
+exports.retrieveLivro = function(id) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "id_autor" : 7,
-  "nome" : "Enid Blyton",
-  "nacionalidade" : "Inglesa"
+  "titulo" : "titulo",
+  "ano_publicacao" : "ano",
+  "id_editora" : 1,
+  "id_autor" : 1
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -61,21 +63,23 @@ exports.retrieveAutorId = function(id) {
 
 
 /**
- * Retrieve Autores
+ * Retrieve Livros
  *
  * returns List
  **/
-exports.retrieveAutores = function() {
+exports.retrieveLivros = function() {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
-  "id_autor" : 7,
-  "nome" : "Enid Blyton",
-  "nacionalidade" : "Inglesa"
+  "titulo" : "titulo",
+  "ano_publicacao" : "ano",
+  "id_editora" : 1,
+  "id_autor" : 1
 }, {
-  "id_autor" : 7,
-  "nome" : "Enid Blyton",
-  "nacionalidade" : "Inglesa"
+  "titulo" : "titulo",
+  "ano_publicacao" : "ano",
+  "id_editora" : 1,
+  "id_autor" : 1
 } ];
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -87,13 +91,13 @@ exports.retrieveAutores = function() {
 
 
 /**
- * Update Autor
+ * Update Livro
  *
- * body Autor 
+ * body Livro 
  * id Long 
  * no response value expected for this operation
  **/
-exports.updateAutor = function(body,id) {
+exports.updateLivroId = function(body,id) {
   return new Promise(function(resolve, reject) {
     resolve();
   });

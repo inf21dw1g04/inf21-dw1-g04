@@ -1,10 +1,10 @@
 'use strict';
 
 var utils = require('../utils/writer.js');
-var AutorController = require('../service/AutorControllerService');
+var EditoraController = require('../service/EditoraControllerService');
 
-module.exports.deleteAutor = function deleteAutor (req, res, next, id) {
-  AutorController.deleteAutor(id)
+module.exports.deleteEditora = function deleteEditora (req, res, next, id) {
+  EditoraController.deleteEditora(id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -13,8 +13,8 @@ module.exports.deleteAutor = function deleteAutor (req, res, next, id) {
     });
 };
 
-module.exports.insertAutor = function insertAutor (req, res, next, body) {
-  AutorController.insertAutor(body)
+module.exports.insertEditora = function insertEditora (req, res, next, body) {
+  EditoraController.insertEditora(body)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -23,8 +23,8 @@ module.exports.insertAutor = function insertAutor (req, res, next, body) {
     });
 };
 
-module.exports.retrieveAutorId = function retrieveAutorId (req, res, next, id) {
-  AutorController.retrieveAutorId(id)
+module.exports.retrieveEditora = function retrieveEditora (req, res, next, id) {
+  EditoraController.retrieveEditora(id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -33,8 +33,8 @@ module.exports.retrieveAutorId = function retrieveAutorId (req, res, next, id) {
     });
 };
 
-module.exports.retrieveAutores = function retrieveAutores (req, res, next) {
-  AutorController.retrieveAutores()
+module.exports.retrieveEditoras = function retrieveEditoras (req, res, next) {
+  EditoraController.retrieveEditoras()
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -43,8 +43,8 @@ module.exports.retrieveAutores = function retrieveAutores (req, res, next) {
     });
 };
 
-module.exports.updateAutor = function updateAutor (req, res, next, body, id) {
-  AutorController.updateAutor(body, id)
+module.exports.updateEditora = function updateEditora (req, res, next, body, id) {
+  EditoraController.updateEditora(body, id)
     .then(function (response) {
       utils.writeJson(res, response);
     })

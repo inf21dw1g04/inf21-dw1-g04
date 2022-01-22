@@ -2,12 +2,12 @@
 
 
 /**
- * Delete Autor
+ * Delete Utilizador
  *
  * id Long 
  * no response value expected for this operation
  **/
-exports.deleteAutor = function(id) {
+exports.deleteUtilizador = function(id) {
   return new Promise(function(resolve, reject) {
     resolve();
   });
@@ -15,18 +15,17 @@ exports.deleteAutor = function(id) {
 
 
 /**
- * Insert Autor
+ * Insert Utilizador
  *
- * body Autor  (optional)
- * returns Autor
+ * body Utilizador  (optional)
+ * returns Utilizador
  **/
-exports.insertAutor = function(body) {
+exports.insertUtilizador = function(body) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "id_autor" : 7,
-  "nome" : "Enid Blyton",
-  "nacionalidade" : "Inglesa"
+  "id_editora" : 4,
+  "nome" : "Luís Macedo"
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -38,18 +37,17 @@ exports.insertAutor = function(body) {
 
 
 /**
- * Retrieve Autor
+ * Retrieve Utilizador
  *
  * id Long 
- * returns Autor
+ * returns Utilizador
  **/
-exports.retrieveAutorId = function(id) {
+exports.retrieveUtilizadorId = function(id) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "id_autor" : 7,
-  "nome" : "Enid Blyton",
-  "nacionalidade" : "Inglesa"
+  "id_editora" : 4,
+  "nome" : "Luís Macedo"
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -61,21 +59,19 @@ exports.retrieveAutorId = function(id) {
 
 
 /**
- * Retrieve Autores
+ * Retrieve Utilizadores
  *
  * returns List
  **/
-exports.retrieveAutores = function() {
+exports.retrieveUtilizadores = function() {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
-  "id_autor" : 7,
-  "nome" : "Enid Blyton",
-  "nacionalidade" : "Inglesa"
+  "id_editora" : 4,
+  "nome" : "Luís Macedo"
 }, {
-  "id_autor" : 7,
-  "nome" : "Enid Blyton",
-  "nacionalidade" : "Inglesa"
+  "id_editora" : 4,
+  "nome" : "Luís Macedo"
 } ];
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -87,13 +83,13 @@ exports.retrieveAutores = function() {
 
 
 /**
- * Update Autor
+ * Update Utilizador
  *
- * body Autor 
+ * body Utilizador 
  * id Long 
  * no response value expected for this operation
  **/
-exports.updateAutor = function(body,id) {
+exports.updateUtilizador = function(body,id) {
   return new Promise(function(resolve, reject) {
     resolve();
   });

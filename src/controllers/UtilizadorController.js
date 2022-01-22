@@ -1,10 +1,10 @@
 'use strict';
 
 var utils = require('../utils/writer.js');
-var AutorController = require('../service/AutorControllerService');
+var UtilizadorController = require('../service/UtilizadorControllerService');
 
-module.exports.deleteAutor = function deleteAutor (req, res, next, id) {
-  AutorController.deleteAutor(id)
+module.exports.deleteUtilizador = function deleteUtilizador (req, res, next, id) {
+  UtilizadorController.deleteUtilizador(id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -13,8 +13,8 @@ module.exports.deleteAutor = function deleteAutor (req, res, next, id) {
     });
 };
 
-module.exports.insertAutor = function insertAutor (req, res, next, body) {
-  AutorController.insertAutor(body)
+module.exports.insertUtilizador = function insertUtilizador (req, res, next, body) {
+  UtilizadorController.insertUtilizador(body)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -23,8 +23,8 @@ module.exports.insertAutor = function insertAutor (req, res, next, body) {
     });
 };
 
-module.exports.retrieveAutorId = function retrieveAutorId (req, res, next, id) {
-  AutorController.retrieveAutorId(id)
+module.exports.retrieveUtilizadorId = function retrieveUtilizadorId (req, res, next, id) {
+  UtilizadorController.retrieveUtilizadorId(id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -33,8 +33,8 @@ module.exports.retrieveAutorId = function retrieveAutorId (req, res, next, id) {
     });
 };
 
-module.exports.retrieveAutores = function retrieveAutores (req, res, next) {
-  AutorController.retrieveAutores()
+module.exports.retrieveUtilizadores = function retrieveUtilizadores (req, res, next) {
+  UtilizadorController.retrieveUtilizadores()
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -43,8 +43,8 @@ module.exports.retrieveAutores = function retrieveAutores (req, res, next) {
     });
 };
 
-module.exports.updateAutor = function updateAutor (req, res, next, body, id) {
-  AutorController.updateAutor(body, id)
+module.exports.updateUtilizador = function updateUtilizador (req, res, next, body, id) {
+  UtilizadorController.updateUtilizador(body, id)
     .then(function (response) {
       utils.writeJson(res, response);
     })

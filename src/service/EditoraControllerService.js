@@ -2,12 +2,12 @@
 
 
 /**
- * Delete Autor
+ * Delete Editora
  *
  * id Long 
  * no response value expected for this operation
  **/
-exports.deleteAutor = function(id) {
+exports.deleteEditora = function(id) {
   return new Promise(function(resolve, reject) {
     resolve();
   });
@@ -15,18 +15,17 @@ exports.deleteAutor = function(id) {
 
 
 /**
- * Insert Autor
+ * Insert Editora
  *
- * body Autor  (optional)
- * returns Autor
+ * body Editora  (optional)
+ * returns Editora
  **/
-exports.insertAutor = function(body) {
+exports.insertEditora = function(body) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "id_autor" : 7,
-  "nome" : "Enid Blyton",
-  "nacionalidade" : "Inglesa"
+  "id_editora" : 11,
+  "nome" : "Soho Press"
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -38,18 +37,17 @@ exports.insertAutor = function(body) {
 
 
 /**
- * Retrieve Autor
+ * Retrieve Editora
  *
  * id Long 
- * returns Autor
+ * returns Editora
  **/
-exports.retrieveAutorId = function(id) {
+exports.retrieveEditora = function(id) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "id_autor" : 7,
-  "nome" : "Enid Blyton",
-  "nacionalidade" : "Inglesa"
+  "id_editora" : 11,
+  "nome" : "Soho Press"
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -61,21 +59,19 @@ exports.retrieveAutorId = function(id) {
 
 
 /**
- * Retrieve Autores
+ * Retrieve Editoras
  *
  * returns List
  **/
-exports.retrieveAutores = function() {
+exports.retrieveEditoras = function() {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
-  "id_autor" : 7,
-  "nome" : "Enid Blyton",
-  "nacionalidade" : "Inglesa"
+  "id_editora" : 11,
+  "nome" : "Soho Press"
 }, {
-  "id_autor" : 7,
-  "nome" : "Enid Blyton",
-  "nacionalidade" : "Inglesa"
+  "id_editora" : 11,
+  "nome" : "Soho Press"
 } ];
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -87,13 +83,13 @@ exports.retrieveAutores = function() {
 
 
 /**
- * Update Autor
+ * Update Editora
  *
- * body Autor 
+ * body Editora 
  * id Long 
  * no response value expected for this operation
  **/
-exports.updateAutor = function(body,id) {
+exports.updateEditora = function(body,id) {
   return new Promise(function(resolve, reject) {
     resolve();
   });
