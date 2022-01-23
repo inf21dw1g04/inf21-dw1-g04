@@ -113,7 +113,7 @@ paths:
       tags:
       - LivroController
       summary: Update Livro
-      operationId: updateLivroId
+      operationId: updateLivro
       parameters:
       - name: id
         in: path

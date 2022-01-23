@@ -97,7 +97,7 @@ exports.retrieveLivros = function() {
  * id Long 
  * no response value expected for this operation
  **/
-exports.updateLivroId = function(body,id) {
+exports.updateLivro = function(body,id) {
   return new Promise(function(resolve, reject) {
     resolve();
   });
