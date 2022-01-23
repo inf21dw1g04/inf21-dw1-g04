@@ -814,7 +814,7 @@ components:
           type: string
       additionalProperties: false
       example:
-        id_autor: 7
+        id_autor: 1
         nome: Enid Blyton
         nacionalidade: Inglesa
     Editora:
