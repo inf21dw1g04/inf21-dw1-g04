@@ -184,7 +184,7 @@ paths:
           description: No Content
         "404":
           description: id not found
-      x-swagger-router-controller: AutorController
+      x-swagger-router-controller: LivroController
   /Editora:
     get:
       tags:
