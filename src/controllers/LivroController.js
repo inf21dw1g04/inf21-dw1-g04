@@ -43,8 +43,8 @@ module.exports.retrieveLivros = function retrieveLivros (req, res, next) {
     });
 };
 
-module.exports.updateLivroId = function updateLivroId (req, res, next, body, id) {
-  LivroController.updateLivroId(body, id)
+module.exports.updateLivro = function updateLivro (req, res, next, body, id) {
+  LivroController.updateLivro(body, id)
     .then(function (response) {
       utils.writeJson(res, response);
     })

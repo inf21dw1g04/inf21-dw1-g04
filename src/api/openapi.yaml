@@ -341,10 +341,10 @@ paths:
           format: int64
         examples:
           one:
-            summary: Delete Livro id 1
+            summary: Delete Editora id 1
             value: 1
           two:
-            summary: Delete Livro id 2
+            summary: Delete Editora id 2
             value: 2
       responses:
         "204":
@@ -778,9 +778,9 @@ components:
   schemas:
     Livro:
       title: Livro
-      required:
-      - titulo
       type: object
+      required: 
+      - titulo
       properties:
         id_livro:
           type: integer
@@ -795,8 +795,9 @@ components:
           type: integer
       additionalProperties: false
       example:
+        id_livro: 1
         titulo: titulo
-        ano_publicacao: ano
+        ano_publicacao: 2000
         id_editora: 1
         id_autor: 1
     Autor:

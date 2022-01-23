@@ -22,7 +22,6 @@ exports.insertLivro = function(body) {
   });
 }
 
-
 /**
  * Delete Livro
  *
@@ -43,6 +42,7 @@ exports.insertLivro = function(body) {
     });
   });
 }
+
 
 /**
  * Retrieve Livro
@@ -84,7 +84,6 @@ exports.retrieveLivros = function() {
   });
 }
 
-
 /**
  * Update Livro
  *
@@ -92,7 +91,6 @@ exports.retrieveLivros = function() {
  * id Long 
  * no response value expected for this operation
  **/
-
 
 exports.updateLivro = function(body,id) {
   return new Promise(function(resolve, reject) {

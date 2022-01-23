@@ -105,5 +105,3 @@ exports.updateEditora = function(body,id) {
     });
   });
 }
-
-
