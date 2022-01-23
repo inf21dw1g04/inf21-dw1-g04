@@ -2,19 +2,6 @@
 var sql = require('../utils/db.js');
 
 /**
- * Delete Utilizador
- *
- * id Long 
- * no response value expected for this operation
- **/
-exports.deleteUtilizador = function(id) {
-  return new Promise(function(resolve, reject) {
-    resolve();
-  });
-}
-
-
-/**
  * Insert Utilizador
  *
  * body Utilizador  (optional)
@@ -22,19 +9,39 @@ exports.deleteUtilizador = function(id) {
  **/
 exports.insertUtilizador = function(body) {
   return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "id_editora" : 4,
-  "nome" : "Luís Macedo"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
+    console.log(body);
+    sql.query("INSERT INTO utilizador (nome) values (?)", [body.nome], function (err, res) {
+      if (err) {
+        console.log(err);
+        reject(err);
+      }else{
+        console.log(res.insertId);
+        resolve(res.insertId);
+      }
+    });
   });
 }
 
+/**
+ * Delete Utilizador
+ *
+ * id Long 
+ * no response value expected for this operation
+ **/
+ exports.deleteUtilizador = function(id) {
+  return new Promise(function(resolve, reject) {
+    sql.query("DELETE FROM utilizador WHERE id_utilizador = ?", [id], function (err, res) {
+      if (err || !res.affectedRows) {
+        console.log(err);
+        console.log(res);
+        reject();
+      } else{
+        console.log(res);
+        resolve({"deleted ":id})
+      }
+    });
+  });
+}
 
 /**
  * Retrieve Utilizador
@@ -44,16 +51,15 @@ exports.insertUtilizador = function(body) {
  **/
 exports.retrieveUtilizador = function(id) {
   return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "id_editora" : 4,
-  "nome" : "Luís Macedo"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
+    sql.query("SELECT * FROM utilizador WHERE id_utilizador = ?", [id], function (err, res) {
+      if (err) {
+        console.log(err);
+        reject(err);
+      } else {
+        console.log(res);
+        resolve(res[0]);
+      }
+    });
   });
 }
 
@@ -65,19 +71,15 @@ exports.retrieveUtilizador = function(id) {
  **/
 exports.retrieveUtilizadores = function() {
   return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "id_editora" : 4,
-  "nome" : "Luís Macedo"
-}, {
-  "id_editora" : 4,
-  "nome" : "Luís Macedo"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
+    sql.query("SELECT * FROM utilizador", function (err, res) {
+      if (err) {
+        console.log(err);
+        reject(err);
+      } else {
+        console.log(res);
+        resolve(res);
+      }
+    });
   });
 }
 
@@ -91,7 +93,15 @@ exports.retrieveUtilizadores = function() {
  **/
 exports.updateUtilizador = function(body,id) {
   return new Promise(function(resolve, reject) {
-    resolve();
+    sql.query("UPDATE utilizador SET nome = ? WHERE id_utilizador = ?", [body.nome, id], function (err, res) {
+      if (err) {
+        console.log(err);
+        reject(err);
+      } else {
+        console.log(res);
+        resolve(res);
+      }
+    });
   });
 }
 
