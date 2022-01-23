@@ -1,18 +1,5 @@
 'use strict';
-
-
-/**
- * Delete Editora
- *
- * id Long 
- * no response value expected for this operation
- **/
-exports.deleteEditora = function(id) {
-  return new Promise(function(resolve, reject) {
-    resolve();
-  });
-}
-
+var sql = require('../utils/db.js');
 
 /**
  * Insert Editora
@@ -22,19 +9,40 @@ exports.deleteEditora = function(id) {
  **/
 exports.insertEditora = function(body) {
   return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "id_editora" : 11,
-  "nome" : "Soho Press"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
+    console.log(body);
+    sql.query("INSERT INTO editora (nome) values (?)", [body.nome], function (err, res) {
+      if (err) {
+        console.log(err);
+        reject(err);
+      }else{
+        console.log(res.insertId);
+        resolve(res.insertId);
+      }
+    });
   });
 }
 
+
+/**
+ * Delete Editora
+ *
+ * id Long 
+ * no response value expected for this operation
+ **/
+ exports.deleteEditora = function(id) {
+  return new Promise(function(resolve, reject) {
+    sql.query("DELETE FROM editora WHERE id_editora = ?", [id], function (err, res) {
+      if (err || !res.affectedRows) {
+        console.log(err);
+        console.log(res);
+        reject();
+      } else{
+        console.log(res);
+        resolve({"deleted ":id})
+      }
+    });
+  });
+}
 
 /**
  * Retrieve Editora
@@ -44,16 +52,15 @@ exports.insertEditora = function(body) {
  **/
 exports.retrieveEditora = function(id) {
   return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "id_editora" : 11,
-  "nome" : "Soho Press"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
+    sql.query("SELECT * FROM editora WHERE id_editora = ?", [id], function (err, res) {
+      if (err) {
+        console.log(err);
+        reject(err);
+      } else {
+        console.log(res);
+        resolve(res[0]);
+      }
+    });
   });
 }
 
@@ -65,19 +72,15 @@ exports.retrieveEditora = function(id) {
  **/
 exports.retrieveEditoras = function() {
   return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "id_editora" : 11,
-  "nome" : "Soho Press"
-}, {
-  "id_editora" : 11,
-  "nome" : "Soho Press"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
+    sql.query("SELECT * FROM editora", function (err, res) {
+      if (err) {
+        console.log(err);
+        reject(err);
+      } else {
+        console.log(res);
+        resolve(res);
+      }
+    });
   });
 }
 
@@ -91,7 +94,16 @@ exports.retrieveEditoras = function() {
  **/
 exports.updateEditora = function(body,id) {
   return new Promise(function(resolve, reject) {
-    resolve();
+    sql.query("UPDATE editora SET nome = ? WHERE id_editora = ?", [body.nome, id], function (err, res) {
+      if (err) {
+        console.log(err);
+        reject(err);
+      } else {
+        console.log(res);
+        resolve(res);
+      }
+    });
   });
 }
+
 

@@ -417,7 +417,7 @@ paths:
       tags:
       - AutorController
       summary: Retrieve Autor
-      operationId: retrieveAutorId
+      operationId: retrieveAutor
       parameters:
       - name: id
         in: path
@@ -591,7 +591,7 @@ paths:
       tags:
       - UtilizadorController
       summary: Retrieve Utilizador
-      operationId: retrieveUtilizadorId
+      operationId: retrieveUtilizador
       parameters:
       - name: id
         in: path

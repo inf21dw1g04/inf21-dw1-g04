@@ -1,5 +1,5 @@
 'use strict';
-
+var sql = require('../utils/db.js');
 
 /**
  * Delete Utilizador
@@ -42,7 +42,7 @@ exports.insertUtilizador = function(body) {
  * id Long 
  * returns Utilizador
  **/
-exports.retrieveUtilizadorId = function(id) {
+exports.retrieveUtilizador = function(id) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {

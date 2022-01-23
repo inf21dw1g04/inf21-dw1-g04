@@ -1,5 +1,5 @@
 'use strict';
-
+var sql = require('../utils/db.js');
 
 /**
  * Retrieve Livro based on Editora ID
@@ -9,19 +9,15 @@
  **/
 exports.retrieveLivroOnEditora = function(id) {
   return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "id_editora" : 11,
-  "nome" : "Soho Press"
-}, {
-  "id_editora" : 11,
-  "nome" : "Soho Press"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
-    }
+    sql.query("SELECT * FROM livro WHERE id_editora = ?", [id], function (err, res) {
+      if (err) {
+        console.log(err);
+        reject(err);
+      } else {
+        console.log(res);
+        resolve(res);
+      }
+    });
   });
 }
 
