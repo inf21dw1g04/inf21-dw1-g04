@@ -3,7 +3,8 @@
 var mysql = require('mysql');
 
 var connection = mysql.createConnection({
-    host: 'mysql',
+    host: 'localhost',
+    //host: 'mysql', NO DOCKER
     user: 'root',
     password: '12345678',
     database: "biblioteca"
