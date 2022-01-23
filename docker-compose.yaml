@@ -17,7 +17,7 @@ services:
     depends_on:
       - mysql
     container_name: biblioteca-app
-    image: dwgrupo04/repositorio2:parte2-app
+    image: bazuka1/repositorio2:parte2-app
     environment:
       NODE_ENV: production
     ports:
