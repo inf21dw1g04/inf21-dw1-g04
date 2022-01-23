@@ -9,7 +9,7 @@ CREATE TABLE `autor` (
   `nome` varchar(45) DEFAULT NULL,
   `nacionalidade` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_autor`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS `editora`;
 
@@ -17,7 +17,7 @@ CREATE TABLE `editora` (
   `id_editora` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_editora`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 DROP TABLE IF EXISTS `livro`;
 
@@ -28,7 +28,7 @@ CREATE TABLE `livro` (
   `id_editora` int DEFAULT NULL,
   `id_autor` int DEFAULT NULL,
   PRIMARY KEY (`id_livro`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 
 DROP TABLE IF EXISTS `utilizador`;
@@ -37,7 +37,7 @@ CREATE TABLE `utilizador` (
   `id_utilizador` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id_utilizador`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `autor` VALUES (1,'William Shakespeare','Inglesa'),(2,'Agatha Christie','Britânica'),(3,'Barbara Cartland','Britânica'),(4,'Danielle Steel','Americana'),(5,'Harold Robbins','Americana'),(6,'Georges Simenon','Belga'),(7,'Enid Blyton','Inglesa'),(8,'Sidney Sheldon','Americana'),(9,'J. K. Rowling','Britânica'),(10,'Gilbert Patten','Americana'),(11,'Dr. Seuss','Americana'),(12,'Eiichiro Oda','Japonesa'),(13,'Akira Toriyama','Japonesa'),(14,'Leo Tolstoy','Russa'),(15,'Corín Tellado','Espanhola'),(16,'Dean Koontz','Americana'),(17,'Jackie Collins','Britânica'),(18,'Horatio Alger','Americana'),(19,'Nora Roberts','Americana'),(20,'R. L. Stine','Americana'),(21,'Alexander Pushkin','Russa'),(22,'Stephen King','Americana'),(23,'Paulo Coelho','Brazileira'),(24,'Jiro Akagawa','Japonesa'),(25,'Jeffrey Archer','Britanica'),(26,'René Goscinny','Francesa'),(27,'Erle Stanley Gardner','Americana'),(28,'Edgar Wallace','Inglesa'),(29,'Janet Dailey','Americana'),(30,'Jin Yong','Chinesa'); 
 INSERT INTO `editora` VALUES (1,'Springer Nature'),(2,'Jo Fletcher Books'),(3,'David Fickling Books'),(4,'Dundurn Press'),(5,'Galley Beggar Press'),(6,'Flying Eye Books'),(7,'Palgrave Macmillan'),(8,'Pratham Books'),(9,'Dover Publications'),(10,'Small Beer Press'),(11,'Soho Press'),(12,'Penguin Random House'),(13,'Harlequin'),(14,'Mighty Media'),(15,'Allen and Unwin'),(16,'Page Street Publishing'),(17,'Quirk Books'),(18,'Ensorcellia Publishing'),(19,'New Directions'),(20,'Harvest House Publishers'),(21,'Fair Winds Press'),(22,'Tor Teen'),(23,'Forever'),(24,'C&R Press'),(25,'Versify'),(26,'Text Publishing'),(27,'Schocken'),(28,'Joffe Books'),(29,'Catapult'),(30,'Chronicle Books');
