@@ -395,9 +395,9 @@ paths:
             examples:
               AutorInsert:
                 $ref: '#/components/examples/AutorInsert'
-              Autore01:
+              AutorExample01:
                 $ref: '#/components/examples/AutorExample01'
-              Autore02:
+              AutorExample02:
                 $ref: '#/components/examples/AutorExample02'
       responses:
         "200":
@@ -425,7 +425,7 @@ paths:
         style: simple
         explode: false
         schema:
-          minimum: 2
+          minimum: 1
           type: integer
           format: int64
         examples:
@@ -599,7 +599,7 @@ paths:
         style: simple
         explode: false
         schema:
-          minimum: 2
+          minimum: 1
           type: integer
           format: int64
         examples:
@@ -846,7 +846,7 @@ components:
           type: string
       additionalProperties: false
       example:
-        id_editora: 4
+        id_utilizador: 4
         nome: Luís Macedo
     inline_response_200:
       type: object

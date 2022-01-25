@@ -23,8 +23,8 @@ module.exports.insertAutor = function insertAutor (req, res, next, body) {
     });
 };
 
-module.exports.retrieveAutorId = function retrieveAutorId (req, res, next, id) {
-  AutorController.retrieveAutorId(id)
+module.exports.retrieveAutor = function retrieveAutor (req, res, next, id) {
+  AutorController.retrieveAutor(id)
     .then(function (response) {
       utils.writeJson(res, response);
     })

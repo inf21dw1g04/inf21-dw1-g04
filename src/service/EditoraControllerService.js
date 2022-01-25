@@ -22,7 +22,6 @@ exports.insertEditora = function(body) {
   });
 }
 
-
 /**
  * Delete Editora
  *

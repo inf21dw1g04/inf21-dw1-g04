@@ -23,8 +23,8 @@ module.exports.insertUtilizador = function insertUtilizador (req, res, next, bod
     });
 };
 
-module.exports.retrieveUtilizadorId = function retrieveUtilizadorId (req, res, next, id) {
-  UtilizadorController.retrieveUtilizadorId(id)
+module.exports.retrieveUtilizador = function retrieveUtilizador (req, res, next, id) {
+  UtilizadorController.retrieveUtilizador(id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
