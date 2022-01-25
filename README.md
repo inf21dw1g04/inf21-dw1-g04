@@ -16,8 +16,7 @@ Construimos uma API que tem suporte nas relações entre os recursos 'Autor', 'E
 
 
 ## Gallery
-![foto1](doc\images\foto1)
-![Tux, the Linux mascot](/assets/images/tux.png)
+(doc\images\foto1)
 </br>
 
 ## Technologies
