@@ -45,8 +45,6 @@ _Please add at least on section (a file) per Chapter. But you can add more._
 * Chapter 2: [Resources](doc/c2.md)
 ### Product
 * Chapter 3: [Product](doc/c3.md)
-### Presentation
-* Chapter 4: [Presentation](doc/c4.md)
 
 ## Team
 * Rodrigo Moreira [@rodmoreira41](https://github.com/rodmoreira41)
