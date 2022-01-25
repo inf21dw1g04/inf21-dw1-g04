@@ -3,7 +3,7 @@ version: '3.7'
 services:
   mysql:
     container_name: biblioteca-mysql
-    image: biblioteca-mysql
+    image: biblioteca-mysql2
     build:
       context: .
       dockerfile: ./dockerfile.mysql
@@ -20,7 +20,7 @@ services:
     depends_on:
       - mysql
     container_name: biblioteca-app
-    image: biblioteca-app
+    image: biblioteca-app2
     build:
       context: .
       dockerfile: ./dockerfile
