@@ -16,7 +16,7 @@ Construimos uma API que tem suporte nas relações entre os recursos 'Autor', 'E
 
 
 ## Gallery
-|![foto1](doc/images/foto1.png)|
+![foto1](doc/images/foto1.png)
 </br>
 
 ## Technologies
