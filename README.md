@@ -1,4 +1,4 @@
-# Biblioteca - M3
+# Biblioteca - M2
 
 Este repositorio foi criado para a Unidade Curricular de **Desenvolvimento Web I**, lecionada na **Universidade da Maia - ISMAI** no curso de **Informática**. <br>
 Desenvolvido pelo **Group 04 : [@rodmoreira41](https://github.com/rodmoreira41), [@pauloazevedo1994](https://github.com/pauloazevedo1994), [@JoaoAragaoA039132](https://github.com/JoaoAragaoA039132)**.
@@ -16,8 +16,7 @@ Construimos uma API que tem suporte nas relações entre os recursos 'Autor', 'E
 
 
 ## Gallery
-
-(doc/images/foto1.png)
+|![foto1](doc/images/foto1.png)|
 </br>
 
 ## Technologies
